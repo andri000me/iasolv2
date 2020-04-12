@@ -24,6 +24,7 @@
   <a href="<?php echo base_url(); ?>admin/mahasiswa/tambah" class="btn-primary">Tambah Mahasiswa</a>
 </div>
 
+<h5>Hasil: <?php echo $total_rows; ?></h5>
 <table>
   <tr>
     <th>No.</th>

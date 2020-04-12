@@ -11,9 +11,22 @@ class Mahasiswa extends CI_Controller {
     $data['judul'] = 'Mahasiswa';
     // $data['mahasiswa'] = $this->Mahasiswa_model->tampil('mahasiswa');
 
-    // pagination config singkat, sisanya ada di pagination.php
+    // load library pagination
     $this->load->library('pagination');
-    $config['total_rows'] = $this->Mahasiswa_model->hitung('mahasiswa');
+
+    // jika kotak pencarian diisi
+    if($this->input->post('keyword')) {
+      $data['keyword'] = $this->input->post('keyword'); // $keyword diisi dg keyword di kotak pencarian
+      $this->session->set_userdata('keyword',$data['keyword']); // membuat session dg nama keyword, yg diisi dg $keyword.. ini spy pagination berjalan
+    } else {
+      $data['keyword'] = $this->session->userdata('keyword'); // ini utk pagination & menangani jika tdk ada keyword yg diketik
+    }
+
+    // pagination config singkat, sisanya ada di pagination.php
+    $this->db->like('nim',$data['keyword']);
+    $this->db->or_like('nama_lengkap',$data['keyword']);
+    $this->db->from('mahasiswa');
+    $config['total_rows'] = $this->db->count_all_results(); // menghitung jumlah baris dr query terakhir yg dilakukan
     $config['per_page'] = 10;
 
     // initialize pagination
@@ -21,12 +34,8 @@ class Mahasiswa extends CI_Controller {
 
     // menampilkan pagination
     $data['mulai'] = $this->uri->segment(4);
-    $data['mahasiswa'] = $this->Mahasiswa_model->getMahasiswa($config['per_page'],$data['mulai']);
-
-    // jika kotak pencarian diisi
-    if($this->input->post('keyword')) {
-      $data['mahasiswa'] = $this->Mahasiswa_model->cariMahasiswa($config['per_page'],$data['mulai']);
-    }
+    $data['mahasiswa'] = $this->Mahasiswa_model->getMahasiswa($config['per_page'],$data['mulai'],$data['keyword']);
+    $data['total_rows'] = $config['total_rows'];
 
     $this->load->view('admin_templates/header',$data);
     $this->load->view('admin_templates/sidebar');

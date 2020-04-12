@@ -1,6 +1,7 @@
 <?php
 class Mahasiswa_model extends CI_Model {
 
+  // ini ga kepake lg
   public function tampil($table) {
     return $this->db->get($table)->result_array(); // SELECT * FROM $table;
     // result_array() membuat data di table mahasiswa menjadi array_associative
@@ -73,10 +74,15 @@ class Mahasiswa_model extends CI_Model {
   }
 
   // pagination
-  public function getMahasiswa($limit,$start) {
+  public function getMahasiswa($limit,$start,$keyword = null) {
+    if($keyword) {
+      $this->db->like('nim',$keyword);
+      $this->db->or_like('nama_lengkap',$keyword);
+    }
     return $this->db->get('mahasiswa',$limit,$start)->result_array();
   }
 
+  // ini ga kepake lg
   public function hitung($table) {
     return $this->db->get($table)->num_rows();
   }
