@@ -1,0 +1,312 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #333;
+}
+
+/* Container */
+.container {
+  width: 960px;
+  margin: auto;
+  background-color: white;
+  color: grey;
+  font-family: arial, sans-serif;
+}
+
+/* Header */
+.header {
+  padding: 20px;
+  border-bottom:  5px solid #333;
+}
+
+.pagination {
+  text-align: center;
+  padding: 20px;
+}
+
+.header li, .pagination li {
+  display: inline-block;
+  margin-top: 15px;
+  margin-right: 10px;
+}
+
+.header a, .pagination a {
+  text-decoration: none;
+  color: darkslategrey;
+  padding: 5px;
+}
+
+.pagination a, .pagination strong {
+  padding: 10px;
+  background-color: lavender;
+  color: grey;
+}
+
+.pagination strong {
+  background: darkslategrey;
+  color: white;
+}
+
+.header a:hover, .pagination a:hover {
+  background-color: darkslategrey;
+  color: white;
+}
+
+/* Main */
+.main {
+  padding: 20px;
+}
+
+.main p {
+  padding-top: 15px;
+  box-sizing: border-box;
+}
+
+/* Content */
+.content {
+  width: 750px;
+  float: right;
+}
+
+.content h2 {
+  margin-bottom: 10px;
+}
+
+.success {
+  background-color: lightgreen;
+  color: green;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.success p {
+  padding: 10px;
+}
+
+.danger {
+  background-color: lightcoral;
+  color: maroon;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.danger p {
+  padding: 10px;
+}
+
+/* Kotak Pencarian */
+.cari {
+  padding-bottom: 20px;
+}
+
+.cari form {
+  width: 100%;
+}
+
+.cari input {
+  float: left;
+}
+
+.cari button {
+  float: left;
+  padding: 9px;
+}
+
+.cari a {
+  float: right;
+  margin-top: 4px;
+}
+
+/* Table */
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 30px;
+}
+
+td, th {
+  border: 1px solid lavender;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: lavender;
+}
+
+/* Form */
+form, .error {
+  width: 300px;
+  /* margin-left: 5%; */
+}
+
+label {
+  display: block;
+  margin: 10px;
+}
+
+input {
+  padding: 8px;
+  display: block;
+  border: 1px solid #ccc;
+}
+
+/* Reset Select */
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  background: darkslategrey;
+  background-image: none;
+}
+
+/* Remove IE arrow */
+select::-ms-expand {
+  display: none;
+}
+
+/* Custom Select */
+.select {
+  position: relative;
+  display: flex;
+  padding: 10px;
+  line-height: 2;
+  background: darkslategrey;
+  overflow: hidden;
+}
+
+select {
+  flex: 1;
+  padding: 0 .5em;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Arrow */
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px;
+  background: darkgrey;
+  cursor: pointer;
+  pointer-events: none;
+}
+
+/* Transition */
+.select:hover::after {
+  color: darkgrey;
+  background: grey;
+}
+
+.btn-primary {
+  background-color: darkslategrey;
+  color: white;
+  padding: 5px;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background-color: grey;
+}
+
+.btn-success {
+  background-color: green;
+  color: white;
+  padding: 5px;
+  text-decoration: none;
+}
+
+.btn-success:hover {
+  background-color: grey;
+}
+
+.btn-danger {
+  background-color: maroon;
+  color: white;
+  padding: 5px;
+  text-decoration: none;
+}
+
+.btn-danger:hover {
+  background-color: grey;
+}
+
+.register {
+  margin-top: 30px;
+  float: right;
+}
+
+button {
+  background-color: darkslategrey;
+  border: none;
+  color: white;
+  padding: 10px;
+}
+
+button:hover {
+  background-color: grey;
+  cursor: pointer;
+}
+
+.error p {
+  color: red;
+  font-size: 15px;
+  /* padding-bottom: 10px; */
+}
+
+/* Sidebar */
+.sidebar {
+  width: 150px;
+  float: left;
+}
+
+.sidebar li {
+  list-style-type: none;
+}
+
+.sidebar a {
+  display: block;
+  text-decoration: none;
+  /* background-color: darkslategrey; */
+  color: darkslategrey;
+  padding-left: 5px;
+  line-height: 30px;
+}
+
+.sidebar a:hover {
+  background-color: darkslategrey;
+  color: white;
+}
+
+.sidebar h3 {
+  padding-bottom: 5px;
+}
+
+/* Micro Clearfix */
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+    *zoom: 1;
+}

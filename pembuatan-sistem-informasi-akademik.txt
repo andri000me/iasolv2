@@ -1,0 +1,51 @@
+1. bikin file htaccess
+
+2. tentukan base_url = http://localhost/iasolv2/
+
+3. msk config.php, edit -> $config['index_page'] = '';
+krn kita sdh menghapus index.php di modrewrite
+
+4. msk routes.php, edit -> $route['default_controller'] = 'home';
+utk mengubah halaman default (http://localhost/iasolv2/) jd controller Home, note : controller Home hrs ada di folder controller (bkn berada di subfolder, klo mau load file yg ada di subfolder ku blm tau caranya)
+controller Home cm buat latihan aja
+
+5. bikin folder & file di views utk menyimpan template admin:
+- admin_templates :
+  - header.php
+  - sidebar.php
+  - footer.php
+
+6. bikin folder assets di iasolv2, isi dg style.css dll
+
+7. load modul url utk mengaktifkan fitur base_url(), ada bbrp cara:
+  cara 1: edit autoload.php, $autoload['helper'] = array('url');
+  cara 2: memakai __construct
+  cara 3: $this->load->helper('url');
+
+
+8. ada 3 cara utk memanggil modul database di ci:
+
+  cara 1. kasih code ini di dalam method:
+  $this->load->database();
+  (tp cara ini hanya melakukan load khusus utk 1 method saja)
+
+  cara 2. bikin method construct:
+  public function __construct() {
+    parent::__construct(); // utk memanggil construct dr CI_Controller
+  }
+  (cara ini berfungsi kalau database akan dipakai di 1 controller ini)
+
+  cara 3. edit autoload.php:
+  $autoload['libraries'] = array('database');
+  (satu sisi memudahkan, satu sisi klo ga dipakai tetap dipanggil, kita hrs mengingat efektivitas manajemen memori, tp klo di dalam si ini byk controller yg memakai database, maka cara 3 yg dipakai)
+
+9. edit database.php utk setting database
+
+10. jgn lupa load model, ada 3 cara:
+- dr autoload.php (plg bawah)
+- $this->load->model('Mahasiswa_model'); (taruh di method)
+- memakai construct spt utk memanggil modul database di atas td
+
+11. utk memasukkan flashdata & sistem login, hrs panggil libraries session di autoload.php
+
+12. 
