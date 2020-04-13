@@ -7,13 +7,16 @@
   </div>
 <?php endif; ?>
 
+<!-- flashdata div diganti jd flashdata sweetalert -->
+<div class="flash-data" data-flashdata="<?php echo $this->session->flashdata('flash'); ?>"></div>
+
 <!-- ini untuk menampilkan flashdata, ketika data sukses diubah, ditambahkan, dihapus -->
 <?php if ($this->session->flashdata('flash')): ?>
-  <div class="success">
+  <!-- <div class="success">
     <p>
-      <?php echo $this->session->flashdata('flash'); ?>
+      <?php // echo $this->session->flashdata('flash'); ?>
     </p>
-  </div>
+  </div> -->
 <?php endif; ?>
 
 <div class="cari">

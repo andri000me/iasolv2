@@ -1,13 +1,6 @@
 <?php
 class Mahasiswa_model extends CI_Model {
 
-  // ini ga kepake lg
-  public function tampil($table) {
-    return $this->db->get($table)->result_array(); // SELECT * FROM $table;
-    // result_array() membuat data di table mahasiswa menjadi array_associative
-    // tanpa result_array(), data akan jd object.. sbnrny lbh simple object sih
-  }
-
   public function tampilProdi($table) {
     $this->db->select('nama_prodi');
     return $this->db->get($table)->result_array(); // SELECT * FROM $table;
@@ -80,11 +73,6 @@ class Mahasiswa_model extends CI_Model {
       $this->db->or_like('nama_lengkap',$keyword);
     }
     return $this->db->get('mahasiswa',$limit,$start)->result_array();
-  }
-
-  // ini ga kepake lg
-  public function hitung($table) {
-    return $this->db->get($table)->num_rows();
   }
 
 }

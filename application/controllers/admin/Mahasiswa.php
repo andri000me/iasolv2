@@ -76,12 +76,14 @@ class Mahasiswa extends CI_Controller {
     }
   }
 
+  // method ini bs dipakai utk data dr table lain jg
   public function hapus($id) {
     $this->Mahasiswa_model->hapus($id,'mahasiswa'); // hapus data dg id $id, dr table mahasiswa
     $this->session->set_flashdata('flash','Data mahasiswa berhasil dihapus.'); // flash = nama flash data (boleh sembarang)
     redirect('admin/mahasiswa');
   }
 
+  // method ini bs dipakai utk data dr table lain jg
   public function detail($id) {
     $data['judul'] = 'Detail Mahasiswa';
     $data['mahasiswa'] = $this->Mahasiswa_model->getById($id,'mahasiswa'); // ambil data berdasarkan id $id, di table mahasiswa
