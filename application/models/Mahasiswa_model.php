@@ -52,25 +52,18 @@ class Mahasiswa_model extends CI_Model {
     $this->db->update('mahasiswa',$data);
   }
 
-  public function cariMahasiswa($limit,$start) {
-    $keyword = $this->input->post('keyword', true);
-    $this->db->like('nim',$keyword);
-    $this->db->or_like('nama_lengkap',$keyword);
-    $this->db->or_like('alamat',$keyword);
-    $this->db->or_like('email',$keyword);
-    $this->db->or_like('telp',$keyword);
-    $this->db->or_like('tempat_lahir',$keyword);
-    $this->db->or_like('tgl_lahir',$keyword);
-    $this->db->or_like('jenis_kel',$keyword);
-    $this->db->or_like('nama_prodi',$keyword);
-    return $this->db->get('mahasiswa',$limit,$start)->result_array();
-  }
-
   // pagination
   public function getMahasiswa($limit,$start,$keyword = null) {
     if($keyword) {
       $this->db->like('nim',$keyword);
       $this->db->or_like('nama_lengkap',$keyword);
+      $this->db->or_like('alamat',$keyword);
+      $this->db->or_like('email',$keyword);
+      $this->db->or_like('telp',$keyword);
+      $this->db->or_like('tempat_lahir',$keyword);
+      $this->db->or_like('tgl_lahir',$keyword);
+      $this->db->or_like('jenis_kel',$keyword);
+      $this->db->or_like('nama_prodi',$keyword);
     }
     return $this->db->get('mahasiswa',$limit,$start)->result_array();
   }

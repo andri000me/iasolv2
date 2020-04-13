@@ -245,6 +245,14 @@ select {
   background-color: grey;
 }
 
+.kembali {
+  margin-top: 30px;
+  float: left;
+  padding: 10px;
+  font-size: 15px;
+  background-color: maroon;
+}
+
 .register {
   margin-top: 30px;
   float: right;

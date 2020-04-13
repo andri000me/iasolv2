@@ -55,5 +55,7 @@
     </select>
   </div>
 
-  <button type="submit" name="tambah">Edit</button>
+  <button type="submit" name="tambah" class="register">Edit</button>
 </form>
+
+<a class="btn-primary kembali" href="<?php echo base_url() ?>admin/mahasiswa">Kembali</a>

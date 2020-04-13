@@ -25,6 +25,13 @@ class Mahasiswa extends CI_Controller {
     // pagination config singkat, sisanya ada di pagination.php
     $this->db->like('nim',$data['keyword']);
     $this->db->or_like('nama_lengkap',$data['keyword']);
+    $this->db->or_like('alamat',$data['keyword']);
+    $this->db->or_like('email',$data['keyword']);
+    $this->db->or_like('telp',$data['keyword']);
+    $this->db->or_like('tempat_lahir',$data['keyword']);
+    $this->db->or_like('tgl_lahir',$data['keyword']);
+    $this->db->or_like('jenis_kel',$data['keyword']);
+    $this->db->or_like('nama_prodi',$data['keyword']);
     $this->db->from('mahasiswa');
     $config['total_rows'] = $this->db->count_all_results(); // menghitung jumlah baris dr query terakhir yg dilakukan
     $config['per_page'] = 10;
@@ -122,7 +129,7 @@ class Mahasiswa extends CI_Controller {
       $this->load->view('admin_templates/footer');
     } else {
       $this->Mahasiswa_model->editMahasiswa();
-      $this->session->set_flashdata('flash','Data mahasiswa berhasil diedit.'); // flash = nama flash data (boleh sembarang)
+      $this->session->set_flashdata('flash','Data berhasil diedit.'); // flash = nama flash data (boleh sembarang)
       redirect('admin/mahasiswa');
     }
   }
