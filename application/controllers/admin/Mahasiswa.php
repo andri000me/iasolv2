@@ -14,15 +14,20 @@ class Mahasiswa extends CI_Controller {
     // load library pagination
     $this->load->library('pagination');
 
-    // jika kotak pencarian diisi
+    // jika kotak pencarian diisi (ini berhubungan dg pagination)
     if($this->input->post('keyword')) {
       $data['keyword'] = $this->input->post('keyword'); // $keyword diisi dg keyword di kotak pencarian
       $this->session->set_userdata('keyword',$data['keyword']); // membuat session dg nama keyword, yg diisi dg $keyword.. ini spy pagination berjalan
+    } elseif ($this->input->post('keyword') == 'a') { // jika keyword diisi dg 'a' (blm berfungsi)
+      // $data['keyword'] = '';
+      // $this->session->set_userdata('keyword','');
+      $this->session->unset_userdata('keyword'); // mereset pencarian dg mereset session
     } else {
       $data['keyword'] = $this->session->userdata('keyword'); // ini utk pagination & menangani jika tdk ada keyword yg diketik
     }
 
     // pagination config singkat, sisanya ada di pagination.php
+    $this->db->cache_on(); // katanya cache on, tp simpan dmn blm tau
     $this->db->like('nim',$data['keyword']);
     $this->db->or_like('nama_lengkap',$data['keyword']);
     $this->db->or_like('alamat',$data['keyword']);
@@ -129,7 +134,7 @@ class Mahasiswa extends CI_Controller {
       $this->load->view('admin_templates/footer');
     } else {
       $this->Mahasiswa_model->editMahasiswa();
-      $this->session->set_flashdata('flash','Data berhasil diedit.'); // flash = nama flash data (boleh sembarang)
+      $this->session->set_flashdata('flash','Data '. $data['mahasiswa']['nama_lengkap'] .' berhasil diedit.'); // flash = nama flash data (boleh sembarang)
       redirect('admin/mahasiswa');
     }
   }

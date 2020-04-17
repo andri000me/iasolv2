@@ -55,6 +55,7 @@ class Mahasiswa_model extends CI_Model {
   // pagination
   public function getMahasiswa($limit,$start,$keyword = null) {
     if($keyword) {
+      $this->db->cache_on(); // katanya cache on, tp simpan dmn blm tau
       $this->db->like('nim',$keyword);
       $this->db->or_like('nama_lengkap',$keyword);
       $this->db->or_like('alamat',$keyword);

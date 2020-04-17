@@ -14,10 +14,14 @@ class Fakultas extends CI_Controller {
     // load library pagination
     $this->load->library('pagination');
 
-    // jika kotak pencarian diisi
+    // jika kotak pencarian diisi (ini berhubungan dg pagination)
     if($this->input->post('keyword')) {
       $data['keyword'] = $this->input->post('keyword'); // $keyword diisi dg keyword di kotak pencarian
       $this->session->set_userdata('keyword',$data['keyword']); // membuat session dg nama keyword, yg diisi dg $keyword.. ini spy pagination berjalan
+    } elseif ($this->input->post('keyword') == 'a') { // jika keyword diisi dg 'a' (blm berfungsi)
+      // $data['keyword'] = '';
+      // $this->session->set_userdata('keyword','');
+      $this->session->unset_userdata('keyword'); // mereset pencarian dg mereset session
     } else {
       $data['keyword'] = $this->session->userdata('keyword'); // ini utk pagination & menangani jika tdk ada keyword yg diketik
     }
