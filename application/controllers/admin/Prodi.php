@@ -27,6 +27,8 @@ class Prodi extends CI_Controller {
     }
 
     // pagination config singkat, sisanya ada di pagination.php
+    $this->db->cache_on(); // cache disimpan di application/cache
+    $this->output->cache(30);
     $this->db->like('kode_prodi',$data['keyword']);
     $this->db->or_like('nama_prodi',$data['keyword']);
     $this->db->or_like('nama_fakultas',$data['keyword']);

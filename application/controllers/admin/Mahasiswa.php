@@ -27,7 +27,8 @@ class Mahasiswa extends CI_Controller {
     }
 
     // pagination config singkat, sisanya ada di pagination.php
-    $this->db->cache_on(); // katanya cache on, tp simpan dmn blm tau
+    $this->db->cache_on(); // cache disimpan di application/cache
+    $this->output->cache(30);
     $this->db->like('nim',$data['keyword']);
     $this->db->or_like('nama_lengkap',$data['keyword']);
     $this->db->or_like('alamat',$data['keyword']);
