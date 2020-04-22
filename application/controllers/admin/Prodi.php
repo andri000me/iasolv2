@@ -18,17 +18,14 @@ class Prodi extends CI_Controller {
     if($this->input->post('keyword')) {
       $data['keyword'] = $this->input->post('keyword'); // $keyword diisi dg keyword di kotak pencarian
       $this->session->set_userdata('keyword',$data['keyword']); // membuat session dg nama keyword, yg diisi dg $keyword.. ini spy pagination berjalan
-    } elseif ($this->input->post('keyword') == 'a') { // jika keyword diisi dg 'a' (blm berfungsi)
-      // $data['keyword'] = '';
-      // $this->session->set_userdata('keyword','');
-      $this->session->unset_userdata('keyword'); // mereset pencarian dg mereset session
     } else {
       $data['keyword'] = $this->session->userdata('keyword'); // ini utk pagination & menangani jika tdk ada keyword yg diketik
     }
 
     // pagination config singkat, sisanya ada di pagination.php
-    $this->db->cache_on(); // cache disimpan di application/cache
-    $this->output->cache(30);
+    // $this->output->delete_cache(); // uncomment klo mau hapus cache
+    // $this->db->cache_on(); // cache disimpan di application/cache
+    // $this->output->cache(30);
     $this->db->like('kode_prodi',$data['keyword']);
     $this->db->or_like('nama_prodi',$data['keyword']);
     $this->db->or_like('nama_fakultas',$data['keyword']);
@@ -82,18 +79,8 @@ class Prodi extends CI_Controller {
     redirect('admin/prodi');
   }
 
-  // method ini bs dipakai utk data dr table lain jg
-  public function detail($id) {
-    $data['judul'] = 'Detail Prodi';
-    $data['prodi'] = $this->Prodi_model->getById($id,'prodi'); // ambil data berdasarkan id $id, di table prodi
-    $this->load->view('admin_templates/header',$data);
-    $this->load->view('admin_templates/sidebar');
-    $this->load->view('admin/prodi/detail',$data);
-    $this->load->view('admin_templates/footer');
-  }
-
   public function edit($id) {
-    $data['judul'] = 'Tambah Prodi';
+    $data['judul'] = 'Edit Prodi';
     $data['prodi'] = $this->Prodi_model->getById($id,'prodi');
 
     // ini rule dr CI
@@ -112,7 +99,7 @@ class Prodi extends CI_Controller {
       $this->load->view('admin_templates/footer');
     } else {
       $this->Prodi_model->editProdi();
-      $this->session->set_flashdata('flash','Data prodi berhasil diedit.'); // flash = nama flash data (boleh sembarang)
+      $this->session->set_flashdata('flash','Prodi '. $data['prodi']['nama_prodi'] .' berhasil diedit.'); // flash = nama flash data (boleh sembarang)
       redirect('admin/prodi');
     }
   }

@@ -18,17 +18,14 @@ class Mahasiswa extends CI_Controller {
     if($this->input->post('keyword')) {
       $data['keyword'] = $this->input->post('keyword'); // $keyword diisi dg keyword di kotak pencarian
       $this->session->set_userdata('keyword',$data['keyword']); // membuat session dg nama keyword, yg diisi dg $keyword.. ini spy pagination berjalan
-    } elseif ($this->input->post('keyword') == 'a') { // jika keyword diisi dg 'a' (blm berfungsi)
-      // $data['keyword'] = '';
-      // $this->session->set_userdata('keyword','');
-      $this->session->unset_userdata('keyword'); // mereset pencarian dg mereset session
     } else {
       $data['keyword'] = $this->session->userdata('keyword'); // ini utk pagination & menangani jika tdk ada keyword yg diketik
     }
 
     // pagination config singkat, sisanya ada di pagination.php
-    $this->db->cache_on(); // cache disimpan di application/cache
-    $this->output->cache(30);
+    // $this->output->delete_cache(); // uncomment klo mau hapus cache
+    // $this->db->cache_on(); // cache disimpan di application/cache
+    // $this->output->cache(30);
     $this->db->like('nim',$data['keyword']);
     $this->db->or_like('nama_lengkap',$data['keyword']);
     $this->db->or_like('alamat',$data['keyword']);
@@ -107,7 +104,7 @@ class Mahasiswa extends CI_Controller {
   }
 
   public function edit($id) {
-    $data['judul'] = 'Tambah Mahasiswa';
+    $data['judul'] = 'Edit Mahasiswa';
     $data['mahasiswa'] = $this->Mahasiswa_model->getById($id,'mahasiswa');
 
     // ini rule dr CI

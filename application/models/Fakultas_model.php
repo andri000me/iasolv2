@@ -23,8 +23,8 @@ class Fakultas_model extends CI_Model {
   public function editFakultas() {
     $data = [
       // parameter true utk mengamankan dr cross site scripting spt (htmlspecialchars) pd phpmvc
-      'kode_fakultas' => $this->input->post('kode_fakultas', true),
-      'nama_fakultas' => $this->input->post('nama_fakultas', true)
+      'kode_fakultas' => $this->input->post('kode_fakultas', TRUE),
+      'nama_fakultas' => $this->input->post('nama_fakultas', TRUE)
     ];
 
     $this->db->where('id_fakultas',$this->input->post('id_fakultas'));
@@ -32,7 +32,7 @@ class Fakultas_model extends CI_Model {
   }
 
   // pagination
-  public function getFakultas($limit,$start,$keyword = null) {
+  public function getFakultas($limit,$start,$keyword = NULL) {
     if($keyword) {
       $this->db->like('kode_fakultas',$keyword);
       $this->db->or_like('nama_fakultas',$keyword);

@@ -9,7 +9,6 @@ class Fakultas extends CI_Controller {
 
   public function index() {
     $data['judul'] = 'Fakultas';
-    // $data['fakultas'] = $this->Fakultas_model->tampil('fakultas');
 
     // load library pagination
     $this->load->library('pagination');
@@ -18,17 +17,14 @@ class Fakultas extends CI_Controller {
     if($this->input->post('keyword')) {
       $data['keyword'] = $this->input->post('keyword'); // $keyword diisi dg keyword di kotak pencarian
       $this->session->set_userdata('keyword',$data['keyword']); // membuat session dg nama keyword, yg diisi dg $keyword.. ini spy pagination berjalan
-    } elseif ($this->input->post('keyword') == 'a') { // jika keyword diisi dg 'a' (blm berfungsi)
-      // $data['keyword'] = '';
-      // $this->session->set_userdata('keyword','');
-      $this->session->unset_userdata('keyword'); // mereset pencarian dg mereset session
     } else {
       $data['keyword'] = $this->session->userdata('keyword'); // ini utk pagination & menangani jika tdk ada keyword yg diketik
     }
 
     // pagination config singkat, sisanya ada di pagination.php
-    $this->db->cache_on(); // cache disimpan di application/cache
-    $this->output->cache(30);
+    // $this->output->delete_cache(); // uncomment klo mau hapus cache
+    // $this->db->cache_on(); // cache disimpan di application/cache
+    // $this->output->cache(30);
     $this->db->like('kode_fakultas',$data['keyword']);
     $this->db->or_like('nama_fakultas',$data['keyword']);
     $this->db->from('fakultas');
@@ -53,9 +49,9 @@ class Fakultas extends CI_Controller {
     $data['judul'] = 'Tambah Fakultas';
 
     // ini rule dr CI
-    $this->form_validation->set_rules('kode_fakultas','Kode Fakultas','required|max_length[9]',[
+    $this->form_validation->set_rules('kode_fakultas','Kode Fakultas','required|max_length[3]',[
       'required' => 'Kode fakultas wajib diisi.',
-      'max_length' => 'Kode fakultas maksimal berisi 2 huruf.'
+      'max_length' => 'Kode fakultas maksimal berisi 3 huruf.'
     ]);
     $this->form_validation->set_rules('nama_fakultas','Nama Fakultas','required',['required' => 'Nama fakultas wajib diisi.']);
     // nama_lengkap = nama field, Nama Fakultas = nama label
@@ -79,18 +75,8 @@ class Fakultas extends CI_Controller {
     redirect('admin/fakultas');
   }
 
-  // method ini bs dipakai utk data dr table lain jg
-  public function detail($id) {
-    $data['judul'] = 'Detail Fakultas';
-    $data['fakultas'] = $this->Fakultas_model->getById($id,'fakultas'); // ambil data berdasarkan id $id, di table fakultas
-    $this->load->view('admin_templates/header',$data);
-    $this->load->view('admin_templates/sidebar');
-    $this->load->view('admin/fakultas/detail',$data);
-    $this->load->view('admin_templates/footer');
-  }
-
   public function edit($id) {
-    $data['judul'] = 'Tambah Fakultas';
+    $data['judul'] = 'Edit Fakultas';
     $data['fakultas'] = $this->Fakultas_model->getById($id,'fakultas');
 
     // ini rule dr CI
@@ -108,7 +94,7 @@ class Fakultas extends CI_Controller {
       $this->load->view('admin_templates/footer');
     } else {
       $this->Fakultas_model->editFakultas();
-      $this->session->set_flashdata('flash','Data fakultas berhasil diedit.'); // flash = nama flash data (boleh sembarang)
+      $this->session->set_flashdata('flash','Fakultas '. $data['fakultas']['nama_fakultas'] .' berhasil diedit.'); // flash = nama flash data (boleh sembarang)
       redirect('admin/fakultas');
     }
   }

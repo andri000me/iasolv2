@@ -3,7 +3,7 @@
 <!-- ini untuk menampilkan flashdata, ketika fakultas yg dicari tdk ada -->
 <?php if (empty($fakultas)): ?>
   <div class="danger">
-    <p>Data fakultas tid_fakultasak ditemukan.</p>
+    <p>Data fakultas tidak ditemukan.</p>
   </div>
 <?php endif; ?>
 

@@ -212,11 +212,13 @@ select {
   background: grey;
 }
 
+/* Button */
 .btn-primary {
   background-color: darkslategrey;
   color: white;
   padding: 5px;
   text-decoration: none;
+  border-radius: 2px;
 }
 
 .btn-primary:hover {
@@ -224,25 +226,28 @@ select {
 }
 
 .btn-success {
-  background-color: green;
+  background-color: #32CD32;
   color: white;
   padding: 5px;
   text-decoration: none;
+  border-radius: 2px;
 }
 
 .btn-success:hover {
-  background-color: grey;
+  background-color: green;
+  color: white;
 }
 
 .btn-danger {
-  background-color: maroon;
+  background-color: crimson;
   color: white;
   padding: 5px;
   text-decoration: none;
+  border-radius: 2px;
 }
 
 .btn-danger:hover {
-  background-color: grey;
+  background-color: coral;
 }
 
 .kembali {
