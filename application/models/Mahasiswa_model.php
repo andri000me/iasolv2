@@ -10,16 +10,16 @@ class Mahasiswa_model extends CI_Model {
 
   public function tambahMahasiswa() {
     $data = [
-      // parameter true utk mengamankan dr cross site scripting spt (htmlspecialchars) pd phpmvc
-      'nim' => $this->input->post('nim', true),
-      'nama_lengkap' => $this->input->post('nama_lengkap', true),
-      'alamat' => $this->input->post('alamat', true),
-      'email' => $this->input->post('email', true),
-      'telp' => $this->input->post('telp', true),
-      'tempat_lahir' => $this->input->post('tempat_lahir', true),
-      'tgl_lahir' => $this->input->post('tgl_lahir', true),
-      'jenis_kel' => $this->input->post('jenis_kel', true),
-      'nama_prodi' => $this->input->post('nama_prodi', true)
+      // parameter TRUE utk mengamankan dr cross site scripting spt (htmlspecialchars) pd phpmvc
+      'nim' => $this->input->post('nim', TRUE),
+      'nama_lengkap' => $this->input->post('nama_lengkap', TRUE),
+      'alamat' => $this->input->post('alamat', TRUE),
+      'email' => $this->input->post('email', TRUE),
+      'telp' => $this->input->post('telp', TRUE),
+      'tempat_lahir' => $this->input->post('tempat_lahir', TRUE),
+      'tgl_lahir' => $this->input->post('tgl_lahir', TRUE),
+      'jenis_kel' => $this->input->post('jenis_kel', TRUE),
+      'nama_prodi' => $this->input->post('nama_prodi', TRUE)
     ];
 
     $this->db->insert('mahasiswa',$data);
@@ -36,16 +36,16 @@ class Mahasiswa_model extends CI_Model {
 
   public function editMahasiswa() {
     $data = [
-      // parameter true utk mengamankan dr cross site scripting spt (htmlspecialchars) pd phpmvc
-      'nim' => $this->input->post('nim', true),
-      'nama_lengkap' => $this->input->post('nama_lengkap', true),
-      'alamat' => $this->input->post('alamat', true),
-      'email' => $this->input->post('email', true),
-      'telp' => $this->input->post('telp', true),
-      'tempat_lahir' => $this->input->post('tempat_lahir', true),
-      'tgl_lahir' => $this->input->post('tgl_lahir', true),
-      'jenis_kel' => $this->input->post('jenis_kel', true),
-      'nama_prodi' => $this->input->post('nama_prodi', true)
+      // parameter TRUE utk mengamankan dr cross site scripting spt (htmlspecialchars) pd phpmvc
+      'nim' => $this->input->post('nim', TRUE),
+      'nama_lengkap' => $this->input->post('nama_lengkap', TRUE),
+      'alamat' => $this->input->post('alamat', TRUE),
+      'email' => $this->input->post('email', TRUE),
+      'telp' => $this->input->post('telp', TRUE),
+      'tempat_lahir' => $this->input->post('tempat_lahir', TRUE),
+      'tgl_lahir' => $this->input->post('tgl_lahir', TRUE),
+      'jenis_kel' => $this->input->post('jenis_kel', TRUE),
+      'nama_prodi' => $this->input->post('nama_prodi', TRUE)
     ];
 
     $this->db->where('id',$this->input->post('id'));

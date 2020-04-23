@@ -3,9 +3,9 @@ class Fakultas_model extends CI_Model {
 
   public function tambahFakultas() {
     $data = [
-      // parameter true utk mengamankan dr cross site scripting spt (htmlspecialchars) pd phpmvc
-      'kode_fakultas' => $this->input->post('kode_fakultas', true),
-      'nama_fakultas' => $this->input->post('nama_fakultas', true)
+      // parameter TRUE utk mengamankan dr cross site scripting spt (htmlspecialchars) pd phpmvc
+      'kode_fakultas' => $this->input->post('kode_fakultas', TRUE),
+      'nama_fakultas' => $this->input->post('nama_fakultas', TRUE)
     ];
 
     $this->db->insert('fakultas',$data);
@@ -22,7 +22,7 @@ class Fakultas_model extends CI_Model {
 
   public function editFakultas() {
     $data = [
-      // parameter true utk mengamankan dr cross site scripting spt (htmlspecialchars) pd phpmvc
+      // parameter TRUE utk mengamankan dr cross site scripting spt (htmlspecialchars) pd phpmvc
       'kode_fakultas' => $this->input->post('kode_fakultas', TRUE),
       'nama_fakultas' => $this->input->post('nama_fakultas', TRUE)
     ];

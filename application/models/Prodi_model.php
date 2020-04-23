@@ -10,10 +10,10 @@ class Prodi_model extends CI_Model {
 
   public function tambahProdi() {
     $data = [
-      // parameter true utk mengamankan dr cross site scripting spt (htmlspecialchars) pd phpmvc
-      'kode_prodi' => $this->input->post('kode_prodi', true),
-      'nama_prodi' => $this->input->post('nama_prodi', true),
-      'nama_fakultas' => $this->input->post('nama_fakultas', true)
+      // parameter TRUE utk mengamankan dr cross site scripting spt (htmlspecialchars) pd phpmvc
+      'kode_prodi' => $this->input->post('kode_prodi', TRUE),
+      'nama_prodi' => $this->input->post('nama_prodi', TRUE),
+      'nama_fakultas' => $this->input->post('nama_fakultas', TRUE)
     ];
 
     $this->db->insert('prodi',$data);
@@ -30,10 +30,10 @@ class Prodi_model extends CI_Model {
 
   public function editProdi() {
     $data = [
-      // parameter true utk mengamankan dr cross site scripting spt (htmlspecialchars) pd phpmvc
-      'kode_prodi' => $this->input->post('kode_prodi', true),
-      'nama_prodi' => $this->input->post('nama_prodi', true),
-      'nama_fakultas' => $this->input->post('nama_fakultas', true)
+      // parameter TRUE utk mengamankan dr cross site scripting spt (htmlspecialchars) pd phpmvc
+      'kode_prodi' => $this->input->post('kode_prodi', TRUE),
+      'nama_prodi' => $this->input->post('nama_prodi', TRUE),
+      'nama_fakultas' => $this->input->post('nama_fakultas', TRUE)
     ];
 
     $this->db->where('id_prodi',$this->input->post('id_prodi'));

@@ -10,15 +10,6 @@
 <!-- flashdata div diganti jd flashdata sweetalert -->
 <div class="flash-data" data-flashdata="<?php echo $this->session->flashdata('flash'); ?>"></div>
 
-<!-- ini untuk menampilkan flashdata, ketika data sukses diubah, ditambahkan, dihapus -->
-<?php if ($this->session->flashdata('flash')): ?>
-  <!-- <div class="success">
-    <p>
-      <?php // echo $this->session->flashdata('flash'); ?>
-    </p>
-  </div> -->
-<?php endif; ?>
-
 <div class="cari">
   <form action="" method="post">
     <input type="text" name="keyword" placeholder="Cari prodi" autofocus>

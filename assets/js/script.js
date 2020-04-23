@@ -1,5 +1,6 @@
 const flashData = $('.flash-data').data('flashdata');
 
+// memunculkan sweetalert success saat CRUD
 if(flashData) {
   Swal.fire({
     title: 'Berhasil!',

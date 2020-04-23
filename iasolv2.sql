@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 13, 2020 at 08:30 AM
+-- Generation Time: Apr 23, 2020 at 10:22 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -42,9 +42,9 @@ INSERT INTO `fakultas` (`id_fakultas`, `kode_fakultas`, `nama_fakultas`) VALUES
 (2, 'TI', 'Teknik Informatika'),
 (3, 'EB', 'Ekonomi dan Bisnis'),
 (4, 'HK', 'Hukum'),
-(5, 'TK', 'Teknik'),
 (6, 'SB', 'Sastra dan Budaya'),
-(7, 'SD', 'Seni Rupa dan Desain');
+(7, 'SD', 'Seni Rupa dan Desain'),
+(8, 'TK', 'Teknik');
 
 -- --------------------------------------------------------
 
@@ -70,8 +70,6 @@ CREATE TABLE `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`id`, `nim`, `nama_lengkap`, `alamat`, `email`, `telp`, `tempat_lahir`, `tgl_lahir`, `jenis_kel`, `nama_prodi`) VALUES
-(1, 222180023, 'Kamiswara Angga Wijaya', 'Semarang', '222180023@student.unaki.ac.id', '089507340705', 'Semarang', '1998-09-06', 'Pria', 'Sistem Informasi'),
-(2, 222180013, 'Thomas Dwi Christiyanto', 'Semarang', '222180013@student.unaki.ac.id', '089507260705', 'Jakarta', '1999-10-06', 'Pria', 'Sistem Informasi'),
 (3, 222180016, 'Yeremia Chris Saragi', 'Karimun', '222180016@student.unaki.ac.id', '089522350705', 'Karimun', '2000-09-06', 'Pria', 'Sistem Informasi'),
 (4, 222180015, 'Frans Alwan Purba', 'TGCU', '222180016@student.unaki.ac.id', '089522350225', 'Jambi', '2000-09-06', 'Pria', 'Sistem Informasi'),
 (9, 222180010, 'Febe Adelia Satoko', 'Nias', '222180010@student.unaki.ac.id', '082137580942', 'Nias', '2000-04-01', 'Wanita', 'Sistem Informasi'),
@@ -79,11 +77,7 @@ INSERT INTO `mahasiswa` (`id`, `nim`, `nama_lengkap`, `alamat`, `email`, `telp`,
 (11, 223180034, 'Ferdinand Atmadja', 'Semarang', '223180034@student.unaki.ac.id', '082132299942', 'Semarang', '2000-05-07', 'Pria', 'Teknik Informatika'),
 (12, 223180012, 'Wirangga Bernandi', 'Kalimantan', '223180012@student.unaki.ac.id', '082137599912', 'Kalimantan', '2000-07-02', 'Pria', 'Teknik Informatika'),
 (13, 223180026, 'Aron Branden', 'Papua', '223180010@student.unaki.ac.id', '082197593942', 'Papua', '2000-12-09', 'Pria', 'Teknik Informatika'),
-(14, 121190052, 'Surti Sulastri', 'Jakarta', '121190052@student.unaki.ac.id', '082137599942', 'Jakarta', '2000-05-02', 'Wanita', 'Sastra Inggris'),
-(15, 121190001, 'Budi Atmodjo', 'Semarang', '121190001@student.unaki.ac.id', '083132299942', 'Semarang', '2000-05-07', 'Pria', 'Sastra Inggris'),
-(16, 121190003, 'Mickael Simbuan', 'Kalimantan', '121190003@student.unaki.ac.id', '081137599912', 'Kalimantan', '2000-07-02', 'Pria', 'Sastra Inggris'),
-(17, 121190026, 'Alex Simbolon', 'Papua', '223180010@student.unaki.ac.id', '089197593942', 'Papua', '2000-12-09', 'Pria', 'Sastra Inggris'),
-(18, 121190013, 'Putra Bagus', 'Papua', '223180010@student.unaki.ac.id', '082197593942', 'Papua', '2000-12-09', 'Pria', 'Sastra Inggris'),
+(18, 121190013, 'Kumeser', 'Papua', '223180010@student.unaki.ac.id', '082197593942', 'Papua', '2000-12-09', 'Pria', 'Sastra Inggris'),
 (19, 58254930, 'Shad Flynn', 'P.O. Box 642, 4456 Magna, Rd.', 'montes@hendreritidante.edu', '085263365310', 'Sagamu', '2000-08-26', 'Pria', 'Telekomunikasi dan Jaringan'),
 (20, 12021473, 'Stone Sharpe', 'Ap #805-9725 Nec, St.', 'Suspendisse@acurna.edu', '089559517977', 'Drumheller', '1970-11-27', 'Wanita', 'Teknik Mesin'),
 (21, 64848658, 'Mohammad Bonner', 'P.O. Box 927, 631 Et Avenue', 'risus.Nunc.ac@quispede.org', '089582315914', 'Green Bay', '1994-02-10', 'Wanita', 'Teknik Informatika'),
@@ -183,7 +177,10 @@ INSERT INTO `mahasiswa` (`id`, `nim`, `nama_lengkap`, `alamat`, `email`, `telp`,
 (115, 66083179, 'Lenore Sargent', '474-9019 Tristique Rd.', 'mauris@semelit.net', '085225468261', 'Poppel', '1986-12-12', 'Wanita', 'Sistem Informasi'),
 (116, 27517667, 'Bree Chan', '9365 Lacus. Road', 'gravida.non@tortor.net', '085247566727', 'Narowal', '1993-10-25', 'Wanita', 'Sastra Inggris'),
 (117, 13555790, 'Abigail Chandler', 'Ap #721-2977 Quis Ave', 'dolor@Cumsociisnatoque.ca', '081217634619', 'Chicoutimi', '1998-01-20', 'Pria', 'Teknik Mesin'),
-(118, 39763089, 'Lillith Martin', 'Ap #278-1726 Dignissim. Rd.', 'orci.lacus@velpede.net', '089512810140', 'Soledad de Graciano Sánchez', '1971-10-27', 'Pria', 'Telekomunikasi dan Jaringan');
+(118, 39763089, 'Lillith Martin', 'Ap #278-1726 Dignissim. Rd.', 'orci.lacus@velpede.net', '089512810140', 'Soledad de Graciano Sánchez', '1971-10-27', 'Pria', 'Telekomunikasi dan Jaringan'),
+(119, 222180015, 'Tridev Sembiring', 'Aku gak tau dimana kamu tinggal.', '222180015@student.unaki.ac.id', '081234219212', 'Kalimantan', '2000-02-02', 'Pria', 'Sistem Informasi'),
+(122, 222180023, 'Kamiswara Angga Wijaya', 'Jl. Darat Nipah 3 No. 181', '222180023@student.unaki.ac.id', '089507340705', 'Semarang', '1998-09-06', 'Pria', 'Sistem Informasi'),
+(123, 222180015, 'Thomas Dwi Christiyanto', 'Banyumanik', '222180015@student.unaki.ac.id', '081273739504', 'Jakarta', '2000-04-22', 'Pria', 'Sistem Informasi');
 
 -- --------------------------------------------------------
 
@@ -205,11 +202,10 @@ CREATE TABLE `matkul` (
 
 INSERT INTO `matkul` (`kode_matkul`, `nama_matkul`, `sks`, `smt`, `nama_prodi`) VALUES
 ('TI1', 'Algoritma dan Pemrograman Dasar I', 2, 1, 'Teknik Informatika'),
-('TI1', 'Algoritma dan Pemrograman Dasar I', 2, 1, 'Sistem Informasi'),
-('TI2', 'Pemrograman Visual I', 2, 1, 'Teknik Informatika'),
-('TI2', 'Pemrograman Visual I', 2, 1, 'Sistem Informasi'),
-('TI3', 'Sistem Basis Data I', 3, 2, 'Sistem Informasi'),
-('TI3', 'Sistem Basis Data I', 3, 2, 'Teknik Informatika');
+('SI1', 'Pemrograman Visual I', 3, 4, 'Sistem Informasi'),
+('TI2', 'Sistem Basis Data I', 2, 1, 'Teknik Informatika'),
+('SIN1', 'Linguistik', 2, 1, 'Sastra Inggris'),
+('TLJ1', 'Jaringan Nirkabel', 2, 1, 'Telekomunikasi dan Jaringan');
 
 -- --------------------------------------------------------
 
@@ -234,33 +230,31 @@ INSERT INTO `prodi` (`id_prodi`, `kode_prodi`, `nama_prodi`, `nama_fakultas`) VA
 (3, 'DG', 'Desain Grafis', 'Seni Rupa dan Desain'),
 (4, 'DP', 'Desain Produk', 'Seni Rupa dan Desain'),
 (5, 'SIN', 'Sastra Inggris', 'Sastra dan Budaya'),
-(6, 'SJ', 'Sastra Jepang', 'Sastra dan Budaya'),
 (7, 'TS', 'Teknik Sipil', 'Teknik'),
-(8, 'TE', 'Teknik Elektro', 'Teknik');
+(8, 'TE', 'Teknik Elektro', 'Teknik'),
+(9, 'SJ', 'Sastra Jepang', 'Sastra dan Budaya'),
+(10, 'TJ', 'Telekomunikasi dan Jaringan', 'Teknik');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Table structure for table `tahun_akademik`
 --
 
-CREATE TABLE `user` (
-  `id` int(11) NOT NULL,
-  `username` varchar(15) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `level` enum('admin','user') NOT NULL,
-  `blokir` enum('N','Y') NOT NULL,
-  `id_sessions` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `tahun_akademik` (
+  `id_th` int(11) NOT NULL,
+  `tahun_akademik` varchar(9) NOT NULL,
+  `semester` varchar(6) NOT NULL,
+  `status` varchar(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `user`
+-- Dumping data for table `tahun_akademik`
 --
 
-INSERT INTO `user` (`id`, `username`, `password`, `email`, `level`, `blokir`, `id_sessions`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', '', 'admin', 'N', ''),
-(2, 'angga', '827ccb0eea8a706c4c34a16891f84e7b', '222180023@student.unaki.ac.id', 'admin', 'N', '');
+INSERT INTO `tahun_akademik` (`id_th`, `tahun_akademik`, `semester`, `status`) VALUES
+(1, '2019/2020', 'Ganjil', 'Aktif'),
+(2, '2019/2020', 'Genap', 'Aktif');
 
 --
 -- Indexes for dumped tables
@@ -285,10 +279,10 @@ ALTER TABLE `prodi`
   ADD PRIMARY KEY (`id_prodi`);
 
 --
--- Indexes for table `user`
+-- Indexes for table `tahun_akademik`
 --
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `tahun_akademik`
+  ADD PRIMARY KEY (`id_th`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -298,25 +292,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `fakultas`
 --
 ALTER TABLE `fakultas`
-  MODIFY `id_fakultas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_fakultas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
 
 --
 -- AUTO_INCREMENT for table `prodi`
 --
 ALTER TABLE `prodi`
-  MODIFY `id_prodi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_prodi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT for table `tahun_akademik`
 --
-ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `tahun_akademik`
+  MODIFY `id_th` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

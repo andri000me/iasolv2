@@ -10,12 +10,12 @@ class Matkul_model extends CI_Model {
 
   public function tambahMatkul() {
     $data = [
-      // parameter true utk mengamankan dr cross site scripting spt (htmlspecialchars) pd phpmvc
-      'kode_matkul' => $this->input->post('kode_matkul', true),
-      'nama_matkul' => $this->input->post('nama_matkul', true),
-      'sks' => $this->input->post('sks', true),
-      'smt' => $this->input->post('smt', true),
-      'nama_prodi' => $this->input->post('nama_prodi', true)
+      // parameter TRUE utk mengamankan dr cross site scripting spt (htmlspecialchars) pd phpmvc
+      'kode_matkul' => $this->input->post('kode_matkul', TRUE),
+      'nama_matkul' => $this->input->post('nama_matkul', TRUE),
+      'sks' => $this->input->post('sks', TRUE),
+      'smt' => $this->input->post('smt', TRUE),
+      'nama_prodi' => $this->input->post('nama_prodi', TRUE)
     ];
 
     $this->db->insert('matkul',$data);
@@ -32,12 +32,12 @@ class Matkul_model extends CI_Model {
 
   public function editMatkul() {
     $data = [
-      // parameter true utk mengamankan dr cross site scripting spt (htmlspecialchars) pd phpmvc
+      // parameter TRUE utk mengamankan dr cross site scripting spt (htmlspecialchars) pd phpmvc
       'kode_matkul' => $this->input->post('kode_matkul', TRUE),
       'nama_matkul' => $this->input->post('nama_matkul', TRUE),
-      'sks' => $this->input->post('sks', true),
-      'smt' => $this->input->post('smt', true),
-      'nama_prodi' => $this->input->post('nama_prodi', true)
+      'sks' => $this->input->post('sks', TRUE),
+      'smt' => $this->input->post('smt', TRUE),
+      'nama_prodi' => $this->input->post('nama_prodi', TRUE)
     ];
 
     $this->db->where('kode_matkul',$this->input->post('kode_matkul'));
