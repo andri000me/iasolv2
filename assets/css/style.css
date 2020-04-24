@@ -41,7 +41,7 @@ body {
 
 .pagination a, .pagination strong {
   padding: 10px;
-  background-color: lavender;
+  background-color: azure;
   color: grey;
 }
 
@@ -130,16 +130,24 @@ table {
   border-collapse: collapse;
   width: 100%;
   margin-top: 30px;
+  color: black;
 }
 
 td, th {
-  border: 1px solid lavender;
   text-align: left;
   padding: 8px;
 }
 
+tr {
+  border-top: 1px solid lightgrey;
+}
+
+tr:last-child {
+  border-bottom: 1px solid lightgrey;
+}
+
 tr:nth-child(even) {
-  background-color: lavender;
+  background-color: azure;
 }
 
 /* Form */
@@ -208,7 +216,7 @@ select {
 
 /* Transition */
 .select:hover::after {
-  color: darkgrey;
+  color: azure;
   background: grey;
 }
 

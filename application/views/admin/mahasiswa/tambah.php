@@ -2,12 +2,6 @@
 
 <form action="" method="post">
 
-  <label for="nim">NIM</label>
-  <input type="text" name="nim">
-  <div class="error">
-    <?php echo form_error('nim'); ?>
-  </div>
-
   <label for="nama_lengkap">Nama Lengkap</label>
   <input type="text" name="nama_lengkap">
   <div class="error">
@@ -47,7 +41,7 @@
   <div class="select">
     <select name="nama_prodi">
       <?php foreach ($nama_prodi as $prd): ?>
-        <option value="<?php echo $prd['nama_prodi'] ?>"><?php echo $prd['nama_prodi'] ?></option>
+        <option value="<?php echo $prd['nama_prodi']; ?>"><?php echo $prd['nama_prodi']; ?></option>
       <?php endforeach; ?>
     </select>
   </div>

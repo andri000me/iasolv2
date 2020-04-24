@@ -9,9 +9,23 @@ class Mahasiswa_model extends CI_Model {
   }
 
   public function tambahMahasiswa() {
+
+    // mengambil kode_prodi dr nama_prodi yg diinput di form
+    $this->db->select('kode_prodi');
+    $kode_prodi = $this->db->get_where('prodi',['nama_prodi' => $this->input->post('nama_prodi')])->row_array();
+
+    // mengambil tahun angkatan dr 2 digit di tengah nim
+    $query = $this->db->query('SELECT MID(nim,4,2) AS nims FROM mahasiswa HAVING nims = '.date("y")); // menampilkan table berisi mahasiswa yg mendaftar tahun ini
+    $angkatan = $query->num_rows(); // menghitung jumlah baris di $query
+    $lastdigit = sprintf("%'04d", $angkatan); // menghasilkan angka yg di awali 0000 di awal
+
+    // nim berisi = kode_prodi + angkatan + jumlah siswa di angkatan & prodi itu
+    $nim = $kode_prodi['kode_prodi'] . date("y") . $lastdigit;
+
+    // membuat array yg akan dimasukkan ke database
     $data = [
       // parameter TRUE utk mengamankan dr cross site scripting spt (htmlspecialchars) pd phpmvc
-      'nim' => $this->input->post('nim', TRUE),
+      'nim' => $nim,
       'nama_lengkap' => $this->input->post('nama_lengkap', TRUE),
       'alamat' => $this->input->post('alamat', TRUE),
       'email' => $this->input->post('email', TRUE),
@@ -19,7 +33,8 @@ class Mahasiswa_model extends CI_Model {
       'tempat_lahir' => $this->input->post('tempat_lahir', TRUE),
       'tgl_lahir' => $this->input->post('tgl_lahir', TRUE),
       'jenis_kel' => $this->input->post('jenis_kel', TRUE),
-      'nama_prodi' => $this->input->post('nama_prodi', TRUE)
+      'nama_prodi' => $this->input->post('nama_prodi', TRUE),
+      'sks' => 24
     ];
 
     $this->db->insert('mahasiswa',$data);

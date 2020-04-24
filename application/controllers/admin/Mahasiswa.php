@@ -57,11 +57,11 @@ class Mahasiswa extends CI_Controller {
     $data['judul'] = 'Tambah Mahasiswa';
 
     // ini rule dr CI
-    $this->form_validation->set_rules('nim','NIM','required|numeric|max_length[9]',[
-      'required' => 'NIM wajib diisi.',
-      'numeric' => 'NIM harus angka.',
-      'max_length' => 'NIM maksimal berisi 9 angka.'
-    ]);
+    // $this->form_validation->set_rules('nim','NIM','required|numeric|max_length[9]',[
+    //   'required' => 'NIM wajib diisi.',
+    //   'numeric' => 'NIM harus angka.',
+    //   'max_length' => 'NIM maksimal berisi 9 angka.'
+    // ]);
     $this->form_validation->set_rules('nama_lengkap','Nama','required',['required' => 'Nama lengkap wajib diisi.']);
     $this->form_validation->set_rules('telp','Telp','required|numeric',[
       'required' => 'Telp wajib diisi.',
@@ -107,12 +107,6 @@ class Mahasiswa extends CI_Controller {
     $data['judul'] = 'Edit Mahasiswa';
     $data['mahasiswa'] = $this->Mahasiswa_model->getById($id,'mahasiswa');
 
-    // ini rule dr CI
-    $this->form_validation->set_rules('nim','NIM','required|numeric|max_length[9]',[
-      'required' => 'NIM wajib diisi.',
-      'numeric' => 'NIM harus angka.',
-      'max_length' => 'NIM maksimal berisi 9 angka.'
-    ]);
     $this->form_validation->set_rules('nama_lengkap','Nama','required',['required' => 'Nama lengkap wajib diisi.']);
     $this->form_validation->set_rules('telp','Telp','required|numeric',[
       'required' => 'Telp wajib diisi.',

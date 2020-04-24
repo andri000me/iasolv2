@@ -51,9 +51,9 @@ class Prodi extends CI_Controller {
     $data['judul'] = 'Tambah Prodi';
 
     // ini rule dr CI
-    $this->form_validation->set_rules('kode_prodi','Kode Prodi','required|max_length[2]',[
+    $this->form_validation->set_rules('kode_prodi','Kode Prodi','required|max_length[3]',[
       'required' => 'Kode prodi wajib diisi.',
-      'max_length' => 'Kode prodi maksimal berisi 2 angka.'
+      'max_length' => 'Kode prodi maksimal berisi 3 angka.'
     ]);
     $this->form_validation->set_rules('nama_prodi','Nama Prodi','required',['required' => 'Nama prodi wajib diisi.']);
     $this->form_validation->set_rules('nama_fakultas','Nama Fakultas','required',['required' => 'Nama fakultas wajib diisi.']);
@@ -84,9 +84,9 @@ class Prodi extends CI_Controller {
     $data['prodi'] = $this->Prodi_model->getById($id,'prodi');
 
     // ini rule dr CI
-    $this->form_validation->set_rules('kode_prodi','Kode Prodi','required|max_length[2]',[
+    $this->form_validation->set_rules('kode_prodi','Kode Prodi','required|max_length[3]',[
       'required' => 'Kode prodi wajib diisi.',
-      'max_length' => 'Kode prodi maksimal berisi 2 angka.'
+      'max_length' => 'Kode prodi maksimal berisi 3 angka.'
     ]);
     $this->form_validation->set_rules('nama_prodi','Nama Prodi','required',['required' => 'Nama prodi wajib diisi.']);
     $this->form_validation->set_rules('nama_fakultas','Nama Fakultas','required',['required' => 'Nama fakultas wajib diisi.']);

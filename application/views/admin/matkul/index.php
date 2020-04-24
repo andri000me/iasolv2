@@ -31,7 +31,7 @@
     <tr>
         <td><?php echo ++$mulai; ?></td>
         <td><?php echo $mtk['kode_matkul']; ?></td>
-        <td><?php echo $mtk['nama_matkul']; ?></td>
+        <td width="200px"><?php echo $mtk['nama_matkul']; ?></td>
         <td><?php echo $mtk['nama_prodi']; ?></td>
         <td>
           <a class="btn-success" href="<?php echo base_url(); ?>admin/matkul/detail/<?php echo $mtk['kode_matkul']; ?>">detail</a>

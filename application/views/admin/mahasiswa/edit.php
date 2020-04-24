@@ -3,12 +3,7 @@
 <form action="" method="post">
 
   <input type="hidden" name="id" value="<?php echo $mahasiswa['id']; ?>">
-
-  <label for="nim">NIM</label>
-  <input type="text" name="nim" value="<?php echo $mahasiswa['nim']; ?>">
-  <div class="error">
-    <?php echo form_error('nim'); ?>
-  </div>
+  <input type="hidden" name="nim" value="<?php echo $mahasiswa['nim']; ?>">
 
   <label for="nama_lengkap">Nama Lengkap</label>
   <input type="text" name="nama_lengkap" value="<?php echo $mahasiswa['nama_lengkap']; ?>">
